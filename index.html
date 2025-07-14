@@ -225,6 +225,8 @@
         let auth, firestore_db;
         let dateFilter;
 
+        const formatRupiah = (angka) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(angka);
+
         // --- AUTHENTICATION ---
         window.handleLogin = async (event) => {
             event.preventDefault();
@@ -378,8 +380,10 @@
                 salesData = [...monthMap.values()];
             }
 
-            if (salesChart) salesChart.destroy();
-            salesChart = new Chart(salesCtx, { type: 'line', data: { labels, datasets: [{ label: 'Penjualan', data: salesData, borderColor: '#2563eb', backgroundColor: '#dbeafe', tension: 0.3, fill: true }] }, options: { responsive: true, maintainAspectRatio: false } });
+            if (window.salesChart instanceof Chart) {
+                window.salesChart.destroy();
+            }
+            window.salesChart = new Chart(salesCtx, { type: 'line', data: { labels, datasets: [{ label: 'Penjualan', data: salesData, borderColor: '#2563eb', backgroundColor: '#dbeafe', tension: 0.3, fill: true }] }, options: { responsive: true, maintainAspectRatio: false } });
 
             // Variant Chart
             const variantCtx = document.getElementById('variantChart').getContext('2d');
@@ -387,8 +391,10 @@
             const variantSalesData = produk.map(p => penjualan.filter(s => s.produkId === p.id).reduce((sum, s) => sum + s.jumlah, 0));
             const bgColors = ['#2563eb', '#16a34a', '#f59e0b', '#dc2626', '#9333ea', '#0d9488'];
 
-            if (variantChart) variantChart.destroy();
-            variantChart = new Chart(variantCtx, { type: 'doughnut', data: { labels: variantLabels, datasets: [{ label: 'Botol Terjual', data: variantSalesData, backgroundColor: bgColors.slice(0, variantLabels.length), hoverOffset: 4 }] }, options: { responsive: true, maintainAspectRatio: false } });
+            if (window.variantChart instanceof Chart) {
+                window.variantChart.destroy();
+            }
+            window.variantChart = new Chart(variantCtx, { type: 'doughnut', data: { labels: variantLabels, datasets: [{ label: 'Botol Terjual', data: variantSalesData, backgroundColor: bgColors.slice(0, variantLabels.length), hoverOffset: 4 }] }, options: { responsive: true, maintainAspectRatio: false } });
         }
 
         function updateProdukList() {
