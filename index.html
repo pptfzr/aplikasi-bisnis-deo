@@ -73,10 +73,10 @@
     <!-- Main App Container -->
     <div id="app-container" class="hidden">
         <div class="container mx-auto p-4 md:p-6 max-w-screen-2xl">
-            <header class="flex justify-between items-center mb-6">
-                <div>
+            <header class="flex flex-col md:flex-row md:justify-between md:items-center mb-6 gap-4">
+                <div class="text-center md:text-left">
                     <h1 id="business-name-header" class="text-3xl font-bold text-gray-800">Deo Business Suite</h1>
-                    <p id="user-email-display" class="text-gray-500"></p>
+                    <p id="user-email-display" class="text-gray-500 text-sm"></p>
                 </div>
                 <div class="flex items-center gap-4">
                      <div class="relative">
@@ -106,8 +106,8 @@
                 <div id="dashboard" class="tab-content">
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
                         <div class="card p-5"><h3 class="text-sm font-medium text-gray-500">Total Saldo Kas</h3><p id="db-total-saldo" class="mt-1 text-3xl font-bold text-indigo-600">Rp 0</p></div>
-                        <div class="card p-5"><h3 class="text-sm font-medium text-gray-500">Total Penjualan</h3><p id="db-total-penjualan" class="mt-1 text-3xl font-bold text-green-600">Rp 0</p></div>
-                        <div class="card p-5"><h3 class="text-sm font-medium text-gray-500">Total Keuntungan</h3><p id="db-total-keuntungan" class="mt-1 text-3xl font-bold text-blue-600">Rp 0</p></div>
+                        <div class="card p-5"><h3 class="text-sm font-medium text-gray-500">Penjualan Bersih</h3><p id="db-total-penjualan" class="mt-1 text-3xl font-bold text-green-600">Rp 0</p></div>
+                        <div class="card p-5"><h3 class="text-sm font-medium text-gray-500">Laba Bersih</h3><p id="db-total-keuntungan" class="mt-1 text-3xl font-bold text-blue-600">Rp 0</p></div>
                         <div class="card p-5"><h3 class="text-sm font-medium text-gray-500">Total Pengeluaran</h3><p id="db-total-pengeluaran" class="mt-1 text-3xl font-bold text-red-600">Rp 0</p></div>
                     </div>
                     <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
@@ -147,7 +147,8 @@
                         <div class="card p-6"><h3 class="text-lg font-bold mb-4">Tambah Produksi</h3><form id="form-produksi"><div class="mb-3"><label class="block text-sm font-medium text-gray-700">Pilih Varian Produk</label><select id="produksi-produk-id" class="mt-1 block w-full p-2 border-gray-300 rounded-md shadow-sm" required></select></div><div class="mb-3"><label class="block text-sm font-medium text-gray-700">Jumlah Botol</label><input type="number" id="produksi-jumlah" class="mt-1 block w-full p-2 border-gray-300 rounded-md shadow-sm" placeholder="100" required></div><button type="submit" class="w-full bg-yellow-500 text-white py-2 rounded-lg font-semibold hover:bg-yellow-600">Tambah Stok</button></form></div>
                         <div class="card p-6"><h3 class="text-lg font-bold mb-4">Tambah Penjualan</h3><form id="form-penjualan"><div class="mb-3"><label class="block text-sm font-medium">Pilih Varian</label><select id="penjualan-produk-id" class="mt-1 block w-full p-2 border-gray-300 rounded-md" required></select></div><div class="mb-3"><label class="block text-sm font-medium">Jumlah Terjual</label><input type="number" id="penjualan-jumlah" class="mt-1 block w-full p-2 border-gray-300 rounded-md" placeholder="10" required></div><div class="mb-3"><label class="block text-sm font-medium">Masuk ke Akun</label><select id="penjualan-akun-id" class="mt-1 block w-full p-2 border-gray-300 rounded-md" required></select></div><div class="mb-3"><label class="block text-sm font-medium">Biaya Admin (Opsional)</label><input type="number" id="penjualan-admin-fee" class="mt-1 block w-full p-2 border-gray-300 rounded-md" placeholder="1000"></div><button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg font-semibold hover:bg-green-700">Catat Penjualan</button></form></div>
                         <div class="card p-6"><h3 class="text-lg font-bold mb-4">Catat Pembelian Bahan</h3><form id="form-pembelian-bahan"><div class="mb-3"><label class="block text-sm font-medium">Pilih Bahan</label><select id="pembelian-bahan-id" class="mt-1 block w-full p-2 border-gray-300 rounded-md" required></select></div><div class="mb-3"><label class="block text-sm font-medium">Dibayar Dari Akun</label><select id="pembelian-akun-id" class="mt-1 block w-full p-2 border-gray-300 rounded-md" required></select></div><div class="grid grid-cols-2 gap-3"><div><label class="block text-sm font-medium">Jumlah Dibeli</label><input type="number" id="pembelian-jumlah" class="mt-1 block w-full p-2 border-gray-300 rounded-md" placeholder="1000" required></div><div><label class="block text-sm font-medium">Total Harga</label><input type="number" id="pembelian-harga" class="mt-1 block w-full p-2 border-gray-300 rounded-md" placeholder="50000" required></div></div><button type="submit" class="mt-3 w-full bg-purple-600 text-white py-2 rounded-lg font-semibold hover:bg-purple-700">Catat Pembelian</button></form></div>
-                        <div class="card p-6 md:col-span-2 lg:col-span-3"><h3 class="text-lg font-bold mb-4">Tambah Pengeluaran Operasional</h3><form id="form-pengeluaran" class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end"><div class="md:col-span-2"><label class="block text-sm font-medium text-gray-700">Deskripsi</label><input type="text" id="pengeluaran-deskripsi" class="mt-1 block w-full p-2 border-gray-300 rounded-md shadow-sm" placeholder="Cth: Biaya Iklan, Beli Lakban" required></div><div><label class="block text-sm font-medium text-gray-700">Dibayar Dari Akun</label><select id="pengeluaran-akun-id" class="mt-1 block w-full p-2 border-gray-300 rounded-md" required></select></div><div><label class="block text-sm font-medium text-gray-700">Jumlah</label><input type="number" id="pengeluaran-jumlah" class="mt-1 block w-full p-2 border-gray-300 rounded-md shadow-sm" placeholder="50000" required></div><button type="submit" class="md:col-span-3 w-full bg-red-600 text-white py-2 rounded-lg font-semibold hover:bg-red-700">Catat Pengeluaran</button></form></div>
+                        <div class="card p-6"><h3 class="text-lg font-bold mb-4">Setor Modal (Tambah Modal)</h3><form id="form-setor-modal"><div class="mb-3"><label class="block text-sm font-medium">Masuk ke Akun</label><select id="modal-akun-id" class="mt-1 block w-full p-2 border-gray-300 rounded-md" required></select></div><div class="mb-3"><label class="block text-sm font-medium">Jumlah Modal</label><input type="number" id="modal-jumlah" class="mt-1 block w-full p-2 border-gray-300 rounded-md" placeholder="500000" required></div><button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700">Tambah Modal</button></form></div>
+                        <div class="card p-6 md:col-span-2"><h3 class="text-lg font-bold mb-4">Tambah Pengeluaran Operasional</h3><form id="form-pengeluaran" class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end"><div class="md:col-span-2"><label class="block text-sm font-medium text-gray-700">Deskripsi</label><input type="text" id="pengeluaran-deskripsi" class="mt-1 block w-full p-2 border-gray-300 rounded-md shadow-sm" placeholder="Cth: Biaya Iklan, Beli Lakban" required></div><div><label class="block text-sm font-medium text-gray-700">Dibayar Dari Akun</label><select id="pengeluaran-akun-id" class="mt-1 block w-full p-2 border-gray-300 rounded-md" required></select></div><div><label class="block text-sm font-medium text-gray-700">Jumlah</label><input type="number" id="pengeluaran-jumlah" class="mt-1 block w-full p-2 border-gray-300 rounded-md shadow-sm" placeholder="50000" required></div><button type="submit" class="md:col-span-3 w-full bg-red-600 text-white py-2 rounded-lg font-semibold hover:bg-red-700">Catat Pengeluaran</button></form></div>
                      </div>
                 </div>
 
@@ -167,9 +168,10 @@
                 
                 <!-- Laporan -->
                 <div id="laporan" class="tab-content hidden">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         <div class="card p-6"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold">Riwayat Penjualan</h3><button onclick="exportToCSV('penjualan')" class="bg-gray-700 text-white px-3 py-1 rounded-lg text-sm hover:bg-gray-800"><i class="fas fa-file-csv mr-2"></i>Export</button></div><div id="list-penjualan" class="overflow-auto max-h-96"></div></div>
                         <div class="card p-6"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold">Riwayat Pengeluaran</h3><button onclick="exportToCSV('pengeluaran')" class="bg-gray-700 text-white px-3 py-1 rounded-lg text-sm hover:bg-gray-800"><i class="fas fa-file-csv mr-2"></i>Export</button></div><div id="list-pengeluaran" class="overflow-auto max-h-96"></div></div>
+                        <div class="card p-6"><div class="flex justify-between items-center mb-4"><h3 class="text-xl font-bold">Riwayat Retur</h3><button onclick="exportToCSV('retur')" class="bg-gray-700 text-white px-3 py-1 rounded-lg text-sm hover:bg-gray-800"><i class="fas fa-file-csv mr-2"></i>Export</button></div><div id="list-retur" class="overflow-auto max-h-96"></div></div>
                     </div>
                 </div>
             </main>
@@ -180,9 +182,10 @@
     <div id="modal-akun-kas" class="modal-backdrop fixed inset-0 flex items-center justify-center hidden z-50"><div class="card p-6 w-full max-w-md"><h3 id="modal-akun-kas-title" class="text-xl font-bold mb-4">Tambah Akun Kas</h3><form id="form-akun-kas"><input type="hidden" id="akun-kas-id"><div class="mb-3"><label class="block text-sm font-medium">Nama Akun</label><input type="text" id="akun-kas-nama" class="mt-1 w-full p-2 border-gray-300 rounded-md" placeholder="Cth: Saldo Shopee" required></div><div class="mb-3"><label class="block text-sm font-medium">Saldo Awal</label><input type="number" id="akun-kas-saldo" class="mt-1 w-full p-2 border-gray-300 rounded-md" placeholder="0" required></div><div class="flex justify-end gap-3 mt-6"><button type="button" onclick="closeModal('modal-akun-kas')" class="bg-gray-200 px-4 py-2 rounded-lg font-semibold">Batal</button><button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold">Simpan</button></div></form></div></div>
     <div id="modal-produk" class="modal-backdrop fixed inset-0 flex items-center justify-center hidden z-50"><div class="card p-6 w-full max-w-lg"><h3 id="modal-produk-title" class="text-xl font-bold mb-4">Tambah Varian Baru</h3><form id="form-produk"><input type="hidden" id="produk-id"><div class="mb-3"><label class="block text-sm font-medium">Nama Varian</label><input type="text" id="produk-nama" class="mt-1 w-full p-2 border-gray-300 rounded-md" placeholder="Cth: Original" required></div><div class="mb-3"><label class="block text-sm font-medium">Harga Jual</label><input type="number" id="produk-harga" class="mt-1 w-full p-2 border-gray-300 rounded-md" placeholder="15000" required></div><div class="mb-4"><h4 class="text-md font-semibold mb-2">Resep Produk</h4><div id="recipe-builder" class="space-y-2"></div><button type="button" onclick="addRecipeIngredient()" class="text-sm text-blue-600 hover:text-blue-800 font-semibold mt-2"><i class="fas fa-plus mr-1"></i>Tambah Bahan</button></div><div class="mb-3 bg-blue-50 p-3 rounded-lg text-center"><label class="block text-sm font-medium">Estimasi HPP</label><p id="produk-hpp-display" class="font-bold text-lg text-blue-700">Rp 0</p></div><div class="flex justify-end gap-3 mt-6"><button type="button" onclick="closeModal('modal-produk')" class="bg-gray-200 px-4 py-2 rounded-lg font-semibold">Batal</button><button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold">Simpan</button></div></form></div></div>
     <div id="modal-bahan" class="modal-backdrop fixed inset-0 flex items-center justify-center hidden z-50"><div class="card p-6 w-full max-w-md"><h3 id="modal-bahan-title" class="text-xl font-bold mb-4">Tambah Bahan Baku</h3><form id="form-bahan"><input type="hidden" id="bahan-id"><div class="mb-3"><label class="block text-sm font-medium">Nama Bahan</label><input type="text" id="bahan-nama" class="mt-1 w-full p-2 border-gray-300 rounded-md" placeholder="Cth: Tawas" required></div><div class="mb-3"><label class="block text-sm font-medium">Satuan</label><input type="text" id="bahan-satuan" class="mt-1 w-full p-2 border-gray-300 rounded-md" placeholder="gr, ml, pcs" required></div><div class="mb-3"><label class="block text-sm font-medium">Peringatan Stok Rendah</label><input type="number" id="bahan-low-stock" class="mt-1 w-full p-2 border-gray-300 rounded-md" placeholder="100" required></div><div class="flex justify-end gap-3 mt-6"><button type="button" onclick="closeModal('modal-bahan')" class="bg-gray-200 px-4 py-2 rounded-lg font-semibold">Batal</button><button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold">Simpan</button></div></form></div></div>
-    <div id="modal-settings" class="modal-backdrop fixed inset-0 flex items-center justify-center hidden z-50"><div class="card p-6 w-full max-w-md"><h3 class="text-xl font-bold mb-4">Pengaturan</h3><form id="form-settings"><div class="mb-4"><label class="block text-sm font-medium">Nama Bisnis</label><input type="text" id="settings-nama-bisnis" class="mt-1 w-full p-2 border-gray-300 rounded-md"></div><div class="flex justify-between gap-3 mt-6"><button type="button" onclick="openResetConfirmation()" class="bg-red-600 text-white px-4 py-2 rounded-lg font-semibold"><i class="fas fa-trash-alt mr-2"></i>Reset Semua Data</button><div><button type="button" onclick="closeModal('modal-settings')" class="bg-gray-200 px-4 py-2 rounded-lg font-semibold">Batal</button><button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold ml-2">Simpan</button></div></div></form></div></div>
+    <div id="modal-settings" class="modal-backdrop fixed inset-0 flex items-center justify-center hidden z-50"><div class="card p-6 w-full max-w-md"><h3 class="text-xl font-bold mb-4">Pengaturan</h3><form id="form-settings"><div class="mb-4"><label class="block text-sm font-medium">Nama Bisnis</label><input type="text" id="settings-nama-bisnis" class="mt-1 w-full p-2 border-gray-300 rounded-md"></div><div id="device-management" class="mt-4 border-t pt-4"><h4 class="text-md font-semibold text-gray-600 mb-2">Perangkat Aktif (<span id="active-device-count">0</span>/4)</h4><div id="device-list" class="space-y-2"></div></div><div class="flex justify-between gap-3 mt-6"><button type="button" onclick="openResetConfirmation()" class="bg-red-600 text-white px-4 py-2 rounded-lg font-semibold"><i class="fas fa-trash-alt mr-2"></i>Reset Semua Data</button><div><button type="button" onclick="closeModal('modal-settings')" class="bg-gray-200 px-4 py-2 rounded-lg font-semibold">Batal</button><button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold ml-2">Simpan</button></div></div></form></div></div>
     <div id="modal-confirm-reset" class="modal-backdrop fixed inset-0 flex items-center justify-center hidden z-50"><div class="card p-8 w-full max-w-md text-center"><i class="fas fa-exclamation-triangle text-5xl text-red-500 mb-4"></i><h3 class="text-xl font-bold mb-2">Anda Yakin?</h3><p class="text-gray-600 mb-6">Semua data bisnis Anda akan dihapus secara permanen dan tidak bisa dikembalikan. Lanjutkan?</p><div class="flex justify-center gap-4"><button type="button" onclick="closeModal('modal-confirm-reset')" class="bg-gray-200 px-6 py-2 rounded-lg font-semibold">Batal</button><button type="button" onclick="executeReset()" class="bg-red-600 text-white px-6 py-2 rounded-lg font-semibold">Ya, Hapus Semua</button></div></div></div>
-    
+    <div id="modal-retur" class="modal-backdrop fixed inset-0 flex items-center justify-center hidden z-50"><div class="card p-6 w-full max-w-md"><h3 class="text-xl font-bold mb-4">Proses Retur Penjualan</h3><form id="form-retur"><input type="hidden" id="retur-sale-id"><div class="mb-3 bg-gray-100 p-3 rounded-md"><p class="text-sm">Produk: <strong id="retur-product-name"></strong></p><p class="text-sm">Terjual: <strong id="retur-qty-sold"></strong></p></div><div class="mb-3"><label class="block text-sm font-medium">Jumlah Diretur</label><input type="number" id="retur-jumlah" class="mt-1 block w-full p-2 border-gray-300 rounded-md" placeholder="1" required></div><div class="flex items-center gap-4 mb-3"><div class="flex items-center"><input id="retur-restock" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded"><label for="retur-restock" class="ml-2 block text-sm text-gray-900">Kembalikan ke Stok</label></div><div class="flex items-center"><input id="retur-refund" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded" onchange="toggleRefundAccount(this.checked)"><label for="retur-refund" class="ml-2 block text-sm text-gray-900">Refund Uang</label></div></div><div id="retur-refund-section" class="hidden mb-3"><label class="block text-sm font-medium">Ambil Dana dari Akun</label><select id="retur-akun-id" class="mt-1 block w-full p-2 border-gray-300 rounded-md"></select></div><div class="flex justify-end gap-3 mt-6"><button type="button" onclick="closeModal('modal-retur')" class="bg-gray-200 px-4 py-2 rounded-lg font-semibold">Batal</button><button type="submit" class="bg-orange-500 text-white px-4 py-2 rounded-lg font-semibold">Proses Retur</button></div></form></div></div>
+
     <script type="module">
         // Import Firebase
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
@@ -198,13 +201,16 @@
             doc, 
             setDoc, 
             getDoc, 
+            getDocs,
             collection, 
             addDoc, 
             onSnapshot,
             query,
             deleteDoc,
             writeBatch,
-            updateDoc
+            updateDoc,
+            arrayUnion,
+            arrayRemove
         } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
         // --- PASTE FIREBASE CONFIG DI SINI ---
@@ -224,8 +230,20 @@
         let userId;
         let auth, firestore_db;
         let dateFilter;
+        let currentDeviceId;
 
         const formatRupiah = (angka) => new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(angka);
+
+        // --- DEVICE ID ---
+        function getDeviceId() {
+            let deviceId = localStorage.getItem('deviceId');
+            if (!deviceId) {
+                deviceId = `device_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+                localStorage.setItem('deviceId', deviceId);
+            }
+            return deviceId;
+        }
+        currentDeviceId = getDeviceId();
 
         // --- AUTHENTICATION ---
         window.handleLogin = async (event) => {
@@ -233,7 +251,22 @@
             const email = document.getElementById('login-email').value;
             const password = document.getElementById('login-password').value;
             try {
-                await signInWithEmailAndPassword(auth, email, password);
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const userDocRef = doc(firestore_db, "users", userCredential.user.uid);
+                const userDoc = await getDoc(userDocRef);
+                const activeDevices = userDoc.data()?.activeDevices || [];
+
+                if (activeDevices.length >= 4 && !activeDevices.some(d => d.id === currentDeviceId)) {
+                    await signOut(auth);
+                    document.getElementById('auth-error').textContent = "Batas 4 perangkat telah tercapai. Harap logout dari perangkat lain.";
+                    return;
+                }
+                
+                if (!activeDevices.some(d => d.id === currentDeviceId)) {
+                    await updateDoc(userDocRef, {
+                        activeDevices: arrayUnion({ id: currentDeviceId, lastLogin: new Date().toISOString() })
+                    });
+                }
             } catch (error) {
                 document.getElementById('auth-error').textContent = error.message;
             }
@@ -245,9 +278,9 @@
             const password = document.getElementById('signup-password').value;
             try {
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                // Create a user document to store their data
                 await setDoc(doc(firestore_db, "users", userCredential.user.uid), {
-                    settings: { businessName: 'Deo Business Suite' }
+                    settings: { businessName: 'Deo Business Suite' },
+                    activeDevices: [{ id: currentDeviceId, lastLogin: new Date().toISOString() }]
                 });
             } catch (error) {
                 document.getElementById('auth-error').textContent = error.message;
@@ -255,8 +288,32 @@
         };
 
         window.handleLogout = async () => {
+            const userDocRef = doc(firestore_db, "users", userId);
+            const userDoc = await getDoc(userDocRef);
+            const activeDevices = userDoc.data()?.activeDevices || [];
+            const deviceToRemove = activeDevices.find(d => d.id === currentDeviceId);
+            if (deviceToRemove) {
+                await updateDoc(userDocRef, {
+                    activeDevices: arrayRemove(deviceToRemove)
+                });
+            }
             await signOut(auth);
         };
+
+        window.forceLogoutDevice = async (deviceIdToLogout) => {
+            if (confirm("Yakin ingin mengeluarkan perangkat ini?")) {
+                const userDocRef = doc(firestore_db, "users", userId);
+                const userDoc = await getDoc(userDocRef);
+                const activeDevices = userDoc.data()?.activeDevices || [];
+                const deviceToRemove = activeDevices.find(d => d.id === deviceIdToLogout);
+                if (deviceToRemove) {
+                    await updateDoc(userDocRef, {
+                        activeDevices: arrayRemove(deviceToRemove)
+                    });
+                    alert("Perangkat berhasil dikeluarkan.");
+                }
+            }
+        }
 
         window.toggleAuthForm = (form) => {
             document.getElementById('login-form').classList.toggle('hidden', form === 'signup');
@@ -266,10 +323,11 @@
 
         // --- REALTIME LISTENERS ---
         function setupRealtimeListeners() {
-            const collections = ['akunKas', 'transfers', 'produk', 'bahanBaku', 'pembelianBahan', 'produksi', 'penjualan', 'pengeluaran'];
+            const collections = ['akunKas', 'transfers', 'produk', 'bahanBaku', 'pembelianBahan', 'produksi', 'penjualan', 'pengeluaran', 'returPenjualan'];
             
             const settingsUnsub = onSnapshot(doc(firestore_db, "users", userId), (doc) => {
                 appState.settings = doc.data()?.settings || { businessName: 'Deo Business Suite' };
+                appState.activeDevices = doc.data()?.activeDevices || [];
                 updateUI();
             });
             unsubscribers.push(settingsUnsub);
@@ -298,7 +356,8 @@
                 filteredState = {
                     ...appState,
                     penjualan: (appState.penjualan || []).filter(item => new Date(item.tanggal) >= start && new Date(item.tanggal) <= end),
-                    pengeluaran: (appState.pengeluaran || []).filter(item => new Date(item.tanggal) >= start && new Date(item.tanggal) <= end)
+                    pengeluaran: (appState.pengeluaran || []).filter(item => new Date(item.tanggal) >= start && new Date(item.tanggal) <= end),
+                    returPenjualan: (appState.returPenjualan || []).filter(item => new Date(item.tanggal) >= start && new Date(item.tanggal) <= end)
                 };
             }
 
@@ -317,21 +376,40 @@
                 document.getElementById('business-name-header').textContent = appState.settings.businessName;
                 document.getElementById('settings-nama-bisnis').value = appState.settings.businessName;
             }
+            const deviceList = document.getElementById('device-list');
+            const activeDevices = appState.activeDevices || [];
+            document.getElementById('active-device-count').textContent = activeDevices.length;
+            deviceList.innerHTML = activeDevices.map(d => `
+                <div class="flex justify-between items-center text-sm p-2 bg-gray-100 rounded-md">
+                    <span>${d.id === currentDeviceId ? '<strong>Perangkat Ini</strong>' : d.id.substring(0, 15)+'...'}</span>
+                    ${d.id !== currentDeviceId ? `<button onclick="forceLogoutDevice('${d.id}')" class="text-red-500 font-semibold">Keluarkan</button>` : ''}
+                </div>
+            `).join('');
         }
 
         function updateDashboard(data) {
             const totalSaldo = (appState.akunKas || []).reduce((sum, acc) => sum + calculateAccountBalance(acc.id), 0);
-            const totalPenjualan = (data.penjualan || []).reduce((sum, item) => sum + (item.jumlah * item.harga), 0);
-            const totalKeuntungan = (data.penjualan || []).reduce((sum, item) => {
+            
+            const totalOmzet = (data.penjualan || []).reduce((sum, item) => sum + (item.jumlah * item.harga), 0);
+            const totalNilaiRetur = (data.returPenjualan || []).reduce((sum, item) => sum + item.nilaiRetur, 0);
+            const penjualanBersih = totalOmzet - totalNilaiRetur;
+
+            const totalHPP = (data.penjualan || []).reduce((sum, item) => {
                 const produk = (appState.produk || []).find(p => p.id === item.produkId);
-                const hpp = produk ? produk.hpp : 0;
-                return sum + (item.jumlah * (item.harga - hpp));
+                return sum + (item.jumlah * (produk?.hpp || 0));
             }, 0);
+            const totalHPPRetur = (data.returPenjualan || []).reduce((sum, item) => {
+                const produk = (appState.produk || []).find(p => p.id === item.produkId);
+                return sum + (item.jumlah * (produk?.hpp || 0));
+            }, 0);
+            
             const totalPengeluaran = (data.pengeluaran || []).reduce((sum, item) => sum + item.jumlah, 0);
+            const labaKotor = penjualanBersih - (totalHPP - totalHPPRetur);
+            const labaBersih = labaKotor - totalPengeluaran;
 
             document.getElementById('db-total-saldo').textContent = formatRupiah(totalSaldo);
-            document.getElementById('db-total-penjualan').textContent = formatRupiah(totalPenjualan);
-            document.getElementById('db-total-keuntungan').textContent = formatRupiah(totalKeuntungan);
+            document.getElementById('db-total-penjualan').textContent = formatRupiah(penjualanBersih);
+            document.getElementById('db-total-keuntungan').textContent = formatRupiah(labaBersih);
             document.getElementById('db-total-pengeluaran').textContent = formatRupiah(totalPengeluaran);
             
             updateCharts(data);
@@ -424,8 +502,10 @@
         function updateLaporan(data) {
             const penjualan = data.penjualan || [];
             const pengeluaran = data.pengeluaran || [];
-            document.getElementById('list-penjualan').innerHTML = penjualan.length ? penjualan.slice().reverse().map(item => `<div class="p-2 border-b"><p class="font-semibold">${item.jumlah}x ${(appState.produk || []).find(p=>p.id===item.produkId)?.nama || 'N/A'}</p><p class="text-xs text-gray-500">${new Date(item.tanggal).toLocaleString('id-ID')} | Total: <span class="text-green-600 font-bold">${formatRupiah(item.jumlah * item.harga)}</span></p></div>`).join('') : '<p class="text-gray-500 text-center">Belum ada penjualan.</p>';
+            const retur = data.returPenjualan || [];
+            document.getElementById('list-penjualan').innerHTML = penjualan.length ? penjualan.slice().reverse().map(item => `<div class="p-2 border-b flex justify-between items-center"><div><p class="font-semibold">${item.jumlah}x ${(appState.produk || []).find(p=>p.id===item.produkId)?.nama || 'N/A'}</p><p class="text-xs text-gray-500">${new Date(item.tanggal).toLocaleString('id-ID')} | Total: <span class="text-green-600 font-bold">${formatRupiah(item.jumlah * item.harga)}</span></p></div><button onclick="openModal('modal-retur', '${item.id}')" class="bg-orange-100 text-orange-600 text-xs font-semibold px-2 py-1 rounded">Retur</button></div>`).join('') : '<p class="text-gray-500 text-center">Belum ada penjualan.</p>';
             document.getElementById('list-pengeluaran').innerHTML = pengeluaran.length ? pengeluaran.slice().reverse().map(item => `<div class="p-2 border-b"><p class="font-semibold">${item.deskripsi}</p><p class="text-xs text-gray-500">${new Date(item.tanggal).toLocaleString('id-ID')} | <span class="text-red-600 font-bold">${formatRupiah(item.jumlah)}</span></p></div>`).join('') : '<p class="text-gray-500 text-center">Belum ada pengeluaran.</p>';
+            document.getElementById('list-retur').innerHTML = retur.length ? retur.slice().reverse().map(item => `<div class="p-2 border-b"><p class="font-semibold">${item.jumlah}x ${(appState.produk || []).find(p=>p.id===item.produkId)?.nama || 'N/A'}</p><p class="text-xs text-gray-500">${new Date(item.tanggal).toLocaleString('id-ID')} | Nilai: <span class="text-orange-600 font-bold">${formatRupiah(item.nilaiRetur)}</span></p></div>`).join('') : '<p class="text-gray-500 text-center">Belum ada retur.</p>';
         }
 
         function updateAnalitik(data) {
@@ -461,14 +541,22 @@
             document.getElementById('pengeluaran-akun-id').innerHTML = kasOptions;
             document.getElementById('transfer-from').innerHTML = kasOptions;
             document.getElementById('transfer-to').innerHTML = kasOptions;
+            document.getElementById('retur-akun-id').innerHTML = kasOptions;
+            document.getElementById('modal-akun-id').innerHTML = kasOptions;
 
-            document.getElementById('produksi-produk-id').innerHTML = (appState.produk || []).map(p => `<option value="${p.id}">${p.nama}</option>`).join('');
-            document.getElementById('penjualan-produk-id').innerHTML = (appState.produk || []).map(p => `<option value="${p.id}">${p.nama}</option>`).join('');
+            const produkOptions = (appState.produk || []).map(p => `<option value="${p.id}">${p.nama}</option>`).join('');
+            document.getElementById('produksi-produk-id').innerHTML = produkOptions;
+            document.getElementById('penjualan-produk-id').innerHTML = produkOptions;
             document.getElementById('pembelian-bahan-id').innerHTML = (appState.bahanBaku || []).map(b => `<option value="${b.id}">${b.nama}</option>`).join('');
         }
 
         // --- CALCULATIONS ---
-        const calculateStock = (produkId) => (appState.produksi || []).filter(p => p.produkId === produkId).reduce((s, p) => s + p.jumlah, 0) - (appState.penjualan || []).filter(p => p.produkId === produkId).reduce((s, p) => s + p.jumlah, 0);
+        const calculateStock = (produkId) => {
+            const totalProduksi = (appState.produksi || []).filter(p => p.produkId === produkId).reduce((s, p) => s + p.jumlah, 0);
+            const totalTerjual = (appState.penjualan || []).filter(p => p.produkId === produkId).reduce((s, p) => s + p.jumlah, 0);
+            const totalDireturDanDistokUlang = (appState.returPenjualan || []).filter(r => r.produkId === produkId && r.restock).reduce((s, r) => s + r.jumlah, 0);
+            return totalProduksi + totalDireturDanDistokUlang - totalTerjual;
+        }
         const calculateBahanStock = (bahanId) => (appState.pembelianBahan || []).filter(p => p.bahanId === bahanId).reduce((s, p) => s + p.jumlah, 0) - (appState.produksi || []).flatMap(p => ((appState.produk || []).find(prod => prod.id === p.produkId)?.resep || []).filter(r => r.bahanId === bahanId).map(r => r.jumlah * p.jumlah)).reduce((s, u) => s + u, 0);
         const calculateBahanAvgPrice = (bahanId) => {
             const purchases = (appState.pembelianBahan || []).filter(p => p.bahanId === bahanId);
@@ -486,9 +574,10 @@
             // Inflows
             (appState.penjualan || []).forEach(s => { if (s.akunId === accountId) balance += s.jumlah * s.harga - (s.adminFee || 0); });
             (appState.transfers || []).forEach(t => { if (t.toId === accountId) balance += t.jumlah; });
+            (appState.pengeluaran || []).filter(e => e.isCapital).forEach(e => { if (e.akunId === accountId) balance += e.jumlah; });
             
             // Outflows
-            (appState.pengeluaran || []).forEach(e => { if (e.akunId === accountId) balance -= e.jumlah; });
+            (appState.pengeluaran || []).filter(e => !e.isCapital).forEach(e => { if (e.akunId === accountId) balance -= e.jumlah; });
             (appState.transfers || []).forEach(t => { if (t.fromId === accountId) balance -= t.jumlah; });
             
             return balance;
@@ -541,6 +630,13 @@
                 } else {
                     document.getElementById('modal-bahan-title').textContent = 'Tambah Bahan Baku';
                 }
+            } else if (modalId === 'modal-retur') {
+                const sale = (appState.penjualan || []).find(s => s.id === id);
+                const product = (appState.produk || []).find(p => p.id === sale.produkId);
+                document.getElementById('retur-sale-id').value = id;
+                document.getElementById('retur-product-name').textContent = product?.nama || 'N/A';
+                document.getElementById('retur-qty-sold').textContent = sale.jumlah;
+                document.getElementById('retur-jumlah').max = sale.jumlah;
             }
             modal.classList.remove('hidden');
         }
@@ -571,6 +667,44 @@
             document.getElementById('produk-hpp-display').textContent = formatRupiah(calculateHPP(resep));
         }
         
+        window.toggleRefundAccount = (isChecked) => {
+            document.getElementById('retur-refund-section').classList.toggle('hidden', !isChecked);
+        }
+        
+        window.openResetConfirmation = () => {
+            closeModal('modal-settings');
+            openModal('modal-confirm-reset');
+        };
+
+        window.executeReset = async () => {
+            try {
+                const batch = writeBatch(firestore_db);
+                const collectionsToDelete = ['akunKas', 'transfers', 'produk', 'bahanBaku', 'pembelianBahan', 'produksi', 'penjualan', 'pengeluaran', 'returPenjualan'];
+
+                for (const collName of collectionsToDelete) {
+                    const q = query(collection(firestore_db, "users", userId, collName));
+                    const snapshot = await getDocs(q);
+                    snapshot.forEach(doc => {
+                        batch.delete(doc.ref);
+                    });
+                }
+                
+                const userDocRef = doc(firestore_db, "users", userId);
+                batch.update(userDocRef, {
+                    settings: { businessName: 'Deo Business Suite' },
+                    activeDevices: [appState.activeDevices.find(d => d.id === currentDeviceId)]
+                });
+
+                await batch.commit();
+
+                closeModal('modal-confirm-reset');
+                alert("Semua data berhasil direset.");
+            } catch (error) {
+                console.error("Error resetting data: ", error);
+                alert("Gagal mereset data.");
+            }
+        };
+
         // --- CRUD & Actions ---
         document.getElementById('form-akun-kas').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -587,6 +721,30 @@
                 }
                 closeModal('modal-akun-kas');
             } catch (error) { console.error("Error saving account: ", error); alert("Gagal menyimpan akun."); }
+        });
+
+        document.getElementById('form-setor-modal').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const akunId = document.getElementById('modal-akun-id').value;
+            const jumlah = parseInt(document.getElementById('modal-jumlah').value);
+            if (!akunId || isNaN(jumlah) || jumlah <= 0) {
+                alert("Harap pilih akun dan masukkan jumlah yang valid.");
+                return;
+            }
+            try {
+                await addDoc(collection(firestore_db, "users", userId, "pengeluaran"), {
+                    deskripsi: `Setor Modal`,
+                    jumlah: jumlah,
+                    tanggal: new Date().toISOString(),
+                    akunId: akunId,
+                    isCapital: true // Flag to identify capital injection
+                });
+                this.reset();
+                alert("Setor modal berhasil dicatat.");
+            } catch (error) {
+                console.error("Error adding capital: ", error);
+                alert("Gagal mencatat setor modal.");
+            }
         });
 
         document.getElementById('form-transfer').addEventListener('submit', async function(e) {
@@ -657,7 +815,7 @@
             e.preventDefault();
             const newName = document.getElementById('settings-nama-bisnis').value;
             try {
-                await setDoc(doc(firestore_db, "users", userId), { settings: { businessName: newName } });
+                await updateDoc(doc(firestore_db, "users", userId), { "settings.businessName": newName });
                 closeModal('modal-settings');
                 alert('Pengaturan disimpan!');
             } catch (error) { console.error("Error saving settings: ", error); alert("Gagal menyimpan pengaturan."); }
@@ -741,6 +899,36 @@
             } catch (error) { console.error("Error saving expense: ", error); alert("Gagal mencatat pengeluaran."); }
         });
         
+        document.getElementById('form-retur').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const saleId = document.getElementById('retur-sale-id').value;
+            const sale = (appState.penjualan || []).find(s => s.id === saleId);
+            const produk = (appState.produk || []).find(p => p.id === sale.produkId);
+            
+            const jumlah = parseInt(document.getElementById('retur-jumlah').value);
+            const restock = document.getElementById('retur-restock').checked;
+            const refund = document.getElementById('retur-refund').checked;
+            const akunId = document.getElementById('retur-akun-id').value;
+            const nilaiRetur = jumlah * produk.harga;
+
+            if (refund && !akunId) { alert("Harap pilih akun untuk pengembalian dana (refund)."); return; }
+            if (refund && calculateAccountBalance(akunId) < nilaiRetur) { alert("Saldo di akun yang dipilih tidak mencukupi untuk refund."); return; }
+
+            try {
+                const batch = writeBatch(firestore_db);
+                const returRef = doc(collection(firestore_db, "users", userId, "returPenjualan"));
+                batch.set(returRef, { originalSaleId: saleId, produkId: sale.produkId, jumlah, nilaiRetur, restock, refund, tanggal: new Date().toISOString() });
+
+                if (refund) {
+                    const pengeluaranRef = doc(collection(firestore_db, "users", userId, "pengeluaran"));
+                    batch.set(pengeluaranRef, { deskripsi: `Refund Retur: ${jumlah}x ${produk.nama}`, jumlah: nilaiRetur, tanggal: new Date().toISOString(), akunId });
+                }
+                await batch.commit();
+                closeModal('modal-retur');
+                alert('Retur berhasil dicatat!');
+            } catch (error) { console.error("Error processing return: ", error); alert("Gagal memproses retur."); }
+        });
+
         window.editProduk = (id) => openModal('modal-produk', id);
         window.deleteProduk = async (id) => { 
             if (confirm('Yakin hapus produk ini? Riwayat penjualan dan produksi terkait akan tetap ada.')) {
@@ -782,10 +970,14 @@
                 headers = ['ID', 'Tanggal', 'ID Produk', 'Nama Produk', 'Jumlah', 'Harga Satuan', 'Total', 'Biaya Admin', 'Akun Kas'];
                 data = (appState.penjualan || []).map(item => [item.id, new Date(item.tanggal).toLocaleString('id-ID'), item.produkId, (appState.produk || []).find(p=>p.id===item.produkId)?.nama || 'N/A', item.jumlah, item.harga, item.jumlah * item.harga, item.adminFee || 0, (appState.akunKas || []).find(a=>a.id===item.akunId)?.nama || 'N/A']);
                 filename = 'laporan_penjualan.csv';
-            } else {
+            } else if (type === 'pengeluaran') {
                 headers = ['ID', 'Tanggal', 'Deskripsi', 'Jumlah', 'Akun Kas'];
                 data = (appState.pengeluaran || []).map(item => [item.id, new Date(item.tanggal).toLocaleString('id-ID'), item.deskripsi, item.jumlah, (appState.akunKas || []).find(a=>a.id===item.akunId)?.nama || 'N/A']);
                 filename = 'laporan_pengeluaran.csv';
+            } else if (type === 'retur') {
+                headers = ['ID', 'Tanggal', 'ID Produk', 'Nama Produk', 'Jumlah', 'Nilai Retur', 'Restock?', 'Refund?'];
+                data = (appState.returPenjualan || []).map(item => [item.id, new Date(item.tanggal).toLocaleString('id-ID'), item.produkId, (appState.produk || []).find(p=>p.id===item.produkId)?.nama || 'N/A', item.jumlah, item.nilaiRetur, item.restock, item.refund]);
+                filename = 'laporan_retur.csv';
             }
             const csvContent = "data:text/csv;charset=utf-8," + [headers.join(','), ...data.map(e => e.join(','))].join('\n');
             const link = document.createElement("a");
